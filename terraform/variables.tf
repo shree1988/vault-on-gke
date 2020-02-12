@@ -4,19 +4,19 @@ terraform {
 
 variable "region" {
   type        = string
-  default     = "us-east4"
+  default     = "us-central1"
   description = "Region in which to create the cluster and run Atlantis."
 }
 
 variable "project" {
   type        = string
-  default     = ""
+  default     = "vault-kubernetes-268011"
   description = "Project ID where Terraform is authenticated to run to create additional projects. If provided, Terraform will create the GKE and Vault cluster inside this project. If not given, Terraform will generate a new project."
 }
 
 variable "project_prefix" {
   type        = string
-  default     = "vault-"
+  default     = "vault-test-"
   description = "String value to prefix the generated project ID with."
 }
 
@@ -32,7 +32,7 @@ variable "org_id" {
 
 variable "kubernetes_instance_type" {
   type        = string
-  default     = "n1-standard-2"
+  default     = "n1-standard-1"
   description = "Instance type to use for the nodes."
 }
 
@@ -81,13 +81,13 @@ variable "storage_bucket_roles" {
 
 variable "kms_key_ring_prefix" {
   type        = string
-  default     = "vault-"
+  default     = "vault-test-"
   description = "String value to prefix the generated key ring with."
 }
 
 variable "kms_key_ring" {
   type        = string
-  default     = ""
+  default     = "vault-test-kms"
   description = "String value to use for the name of the KMS key ring. This exists for backwards-compatability for users of the existing configurations. Please use kms_key_ring_prefix instead."
 }
 
